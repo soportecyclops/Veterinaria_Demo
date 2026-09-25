@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Menu Toggle
+    // 1. Mobile Menu Toggle Responsivo
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -9,25 +9,34 @@ document.addEventListener('DOMContentLoaded', () => {
             menuToggle.setAttribute('aria-expanded', !isExpanded);
             navLinks.classList.toggle('active');
         });
+
+        // Cerrar menú al hacer clic en un enlace (UX Mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+            });
+        });
     }
 
-    // 2. FAQ Accordion Accesible
+    // 2. Acordeón Accesible WCAG
     const accordionHeaders = document.querySelectorAll('.accordion-header');
 
     accordionHeaders.forEach(header => {
         header.addEventListener('click', () => {
-            const content = header.nextElementSibling;
+            const content = document.getElementById(header.getAttribute('aria-controls'));
             const isExpanded = header.getAttribute('aria-expanded') === 'true';
 
-            // Cerrar todos los demás
+            // Comportamiento de acordeón único (cierra los demás de forma fluida)
             document.querySelectorAll('.accordion-header').forEach(otherHeader => {
                 if (otherHeader !== header) {
                     otherHeader.setAttribute('aria-expanded', 'false');
-                    otherHeader.nextElementSibling.style.maxHeight = null;
+                    const otherContent = document.getElementById(otherHeader.getAttribute('aria-controls'));
+                    if(otherContent) otherContent.style.maxHeight = null;
                 }
             });
 
-            // Toggle actual
+            // Toggle estado actual
             if (isExpanded) {
                 header.setAttribute('aria-expanded', 'false');
                 content.style.maxHeight = null;

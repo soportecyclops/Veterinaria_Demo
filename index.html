@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro Veterinario Pampa | Especialistas en Felinos y Clínica General en Palermo</title>
-    <meta name="description" content="Atención veterinaria en Palermo, CABA. Laboratorio propio, ecografías en el momento y consultorio exclusivo para felinos (Cat-Friendly). Reservá tu turno.">
+    <title>Centro Veterinario Pampa | Clínica y Especialistas en Felinos en Palermo</title>
+    <meta name="description" content="Atención veterinaria integral en Palermo, CABA. Laboratorio propio, ecografías en el acto y consultorio Cat-Friendly exclusivo. Reservá tu turno hoy.">
+    <link rel="canonical" href="https://www.veterinariapampa.com.ar/">
     
-    <!-- Fuentes sobrias y legibles -->
+    <!-- OpenGraph SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Centro Veterinario Pampa | Palermo, CABA">
+    <meta property="og:description" content="Laboratorio en el día, ecografías y espacio exclusivo Cat-Friendly. Dirigido por profesionales matriculados.">
+    <meta property="og:url" content="https://www.veterinariapampa.com.ar/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1200&q=80">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 
-    <!-- Datos Estructurados Schema.org para SEO Local -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "VeterinaryCare",
       "name": "Centro Veterinario Pampa",
       "image": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80",
-      "@id": "",
+      "@id": "https://www.veterinariapampa.com.ar/#veterinaria",
       "url": "https://www.veterinariapampa.com.ar",
       "telephone": "+5491112345678",
       "address": {
@@ -38,9 +43,7 @@
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
-        ],
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         "opens": "09:00",
         "closes": "20:00"
       },
@@ -57,12 +60,12 @@
                 <span>Palermo, CABA</span>
             </div>
             <nav class="main-nav">
-                <button class="mobile-menu-toggle" aria-label="Abrir menú" aria-expanded="false">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                <button class="mobile-menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-navigation">
+                    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
                 </button>
-                <ul class="nav-links">
+                <ul id="primary-navigation" class="nav-links">
                     <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#diferencial">Por qué elegirnos</a></li>
+                    <li><a href="#diferencial">Nuestro Equipo</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
@@ -73,15 +76,15 @@
         <section class="hero">
             <div class="container hero-inner">
                 <div class="hero-content">
-                    <h1>Clínica Veterinaria en Palermo. Respuestas rápidas para la salud de tu mascota.</h1>
-                    <p>Sabemos que la espera angustia. Por eso contamos con <strong>laboratorio propio y ecografía en el momento</strong> para darte un diagnóstico preciso en la misma consulta.</p>
+                    <h1>Diagnósticos precisos. Salud animal sin esperas innecesarias.</h1>
+                    <p>Contamos con <strong>laboratorio propio y ecografía en el momento</strong>. Evaluamos a tu mascota y te damos un plan de tratamiento claro en la misma consulta.</p>
                     <div class="hero-actions">
-                        <a href="https://wa.me/5491112345678?text=Hola,%20necesito%20agendar%20un%20turno%20para%20mi%20mascota." class="btn btn-primary">Agendar Turno por WhatsApp</a>
-                        <span class="trust-badge">Atención de Lunes a Sábados</span>
+                        <a href="https://wa.me/5491112345678?text=Hola,%20necesito%20agendar%20un%20turno%20en%20la%20clínica." class="btn btn-primary">Agendá un turno por WhatsApp</a>
+                        <span class="trust-badge">Atención clínica de Lunes a Sábados</span>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80" alt="Veterinario revisando a un perro con dedicación" width="800" height="533">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80" alt="Veterinario realizando un chequeo clínico a un perro" width="800" height="533" fetchpriority="high">
                 </div>
             </div>
         </section>
@@ -91,19 +94,19 @@
                 <h2>Servicios Médicos</h2>
                 <div class="services-grid">
                     <article class="service-card">
-                        <svg class="service-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                        <h3>Clínica General</h3>
-                        <p>Controles de rutina, vacunación, desparasitación y clínica médica integral para perros y gatos.</p>
+                        <svg aria-hidden="true" class="service-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <h3>Clínica Médica General</h3>
+                        <p>Controles preventivos, esquemas de vacunación, desparasitación y tratamiento integral para perros y gatos.</p>
                     </article>
                     <article class="service-card">
-                        <svg class="service-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                        <h3>Laboratorio en el día</h3>
-                        <p>Análisis de sangre, orina y citologías procesados en nuestra propia clínica para no demorar tratamientos.</p>
+                        <svg aria-hidden="true" class="service-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                        <h3>Laboratorio Interno</h3>
+                        <p>Análisis de sangre y orina procesados en nuestra clínica en el acto para iniciar tratamientos sin demoras.</p>
                     </article>
                     <article class="service-card cat-friendly">
-                        <svg class="service-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="6.5"/></svg>
-                        <h3>Espacio Cat-Friendly</h3>
-                        <p>Sala de espera exclusiva para felinos. Menos ruidos, sin contacto con perros y manejo libre de estrés.</p>
+                        <svg aria-hidden="true" class="service-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="6.5"/></svg>
+                        <h3>Consultorio Cat-Friendly</h3>
+                        <p>Espacio exclusivo para felinos. Manejo libre de estrés, sin ruidos invasivos ni contacto cruzado con perros.</p>
                     </article>
                 </div>
             </div>
@@ -112,15 +115,15 @@
         <section id="diferencial" class="trust-section">
             <div class="container trust-inner">
                 <div class="trust-image">
-                    <img src="https://images.unsplash.com/photo-1516734212909-7aa8e17dbdf7?auto=format&fit=crop&w=800&q=80" alt="Gato tranquilo en consulta veterinaria" width="800" height="533">
+                    <img src="https://images.unsplash.com/photo-1516734212909-7aa8e17dbdf7?auto=format&fit=crop&w=800&q=80" alt="Gato tranquilo durante revisión veterinaria" width="800" height="533" loading="lazy">
                 </div>
                 <div class="trust-content">
-                    <h2>Dirigido por Profesionales Matriculados</h2>
-                    <p>El Centro Pampa está a cargo del <strong>Dr. Martín López (M.P. 9342)</strong> y su equipo de especialistas. No delegamos la salud de tu animal en personal sin título.</p>
+                    <h2>Dirección a cargo de Profesionales Matriculados</h2>
+                    <p>El Centro Pampa está dirigido por el <strong>Dr. Martín López (M.P. 9342)</strong> junto a un equipo de especialistas. No delegamos la salud de tu animal en asistentes sin título habilitante.</p>
                     <ul class="check-list">
-                        <li>Protocolos de anestesia segura.</li>
-                        <li>Equipamiento de ecografía de última generación.</li>
-                        <li>Historia clínica digital compartida con el propietario.</li>
+                        <li>Protocolos estrictos de anestesia segura.</li>
+                        <li>Equipamiento ecográfico de alta resolución.</li>
+                        <li>Historia clínica digital transparente, compartida con vos.</li>
                     </ul>
                 </div>
             </div>
@@ -131,15 +134,15 @@
                 <h2>Preguntas Frecuentes</h2>
                 <div class="accordion">
                     <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">¿Atienden urgencias de madrugada?</button>
-                        <div class="accordion-content">
-                            <p>No somos un hospital 24hs. Nuestro horario de atención es de Lunes a Sábados de 9:00 a 20:00 hs. Si tenés una emergencia fuera de ese horario, te derivaremos a un centro de alta complejidad aliado.</p>
+                        <button class="accordion-header" aria-expanded="false" aria-controls="faq1">¿Atienden urgencias de madrugada?</button>
+                        <div id="faq1" class="accordion-content" role="region">
+                            <p>No operamos como hospital 24hs. Nuestro horario es de Lunes a Sábados de 9:00 a 20:00 hs. Si tenés una emergencia fuera de esa franja, te derivamos de inmediato a un centro de alta complejidad aliado.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <button class="accordion-header" aria-expanded="false">¿Qué formas de pago aceptan?</button>
-                        <div class="accordion-content">
-                            <p>Aceptamos efectivo, transferencias bancarias, tarjetas de débito y crédito. Emitimos factura electrónica en el momento.</p>
+                        <button class="accordion-header" aria-expanded="false" aria-controls="faq2">¿Qué formas de pago aceptan?</button>
+                        <div id="faq2" class="accordion-content" role="region">
+                            <p>Aceptamos efectivo, transferencias bancarias, tarjetas de débito y crédito. Emitimos factura electrónica en el acto.</p>
                         </div>
                     </div>
                 </div>
@@ -147,12 +150,12 @@
         </section>
     </main>
 
-    <footer class="site-footer">
+    <footer id="contacto" class="site-footer">
         <div class="container footer-inner">
             <div class="footer-col">
                 <h4>Centro Veterinario Pampa</h4>
                 <p>Av. Santa Fe 3200, Palermo, CABA.</p>
-                <p>Tel: 11 1234-5678</p>
+                <p>WhatsApp y Tel: <a href="https://wa.me/5491112345678" style="color: inherit; text-decoration: underline;">11 1234-5678</a></p>
             </div>
             <div class="footer-col legal-col">
                 <p><a href="http://www.consumidor.gob.ar/" target="_blank" rel="noopener">Defensa del Consumidor (Ley 24.240)</a></p>
@@ -162,9 +165,8 @@
         </div>
     </footer>
 
-    <!-- Botón Flotante WhatsApp -->
     <a href="https://wa.me/5491112345678?text=Hola,%20quisiera%20hacer%20una%20consulta." class="wa-float" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
-        <svg viewBox="0 0 32 32" width="32" height="32" fill="currentColor"><path d="M16 2a13 13 0 0 0-11 20l-2 5 5-2a13 13 0 1 0 8-23zm0 24a11 11 0 0 1-5-1l-3 1 1-3a11 11 0 1 1 7 3zm6-8c0 .5-.3 1-.7 1h-.2c-.3 0-1 0-3-1-2-1-3-3-3-3s-1-1-1-2 .4-2 .8-2h.4c.2 0 .4 0 .5.1l1 2.3c0 .2 0 .3-.1.4l-.4.5c-.1.1-.2.2 0 .4 1 1.6 2.1 2.6 3.6 3.4.2.1.4.1.5 0l.6-.7c.1-.2.3-.2.4-.2l2.3 1c.2.1.2.3.2.4z"/></svg>
+        <svg aria-hidden="true" viewBox="0 0 32 32" width="32" height="32" fill="currentColor"><path d="M16 2a13 13 0 0 0-11 20l-2 5 5-2a13 13 0 1 0 8-23zm0 24a11 11 0 0 1-5-1l-3 1 1-3a11 11 0 1 1 7 3zm6-8c0 .5-.3 1-.7 1h-.2c-.3 0-1 0-3-1-2-1-3-3-3-3s-1-1-1-2 .4-2 .8-2h.4c.2 0 .4 0 .5.1l1 2.3c0 .2 0 .3-.1.4l-.4.5c-.1.1-.2.2 0 .4 1 1.6 2.1 2.6 3.6 3.4.2.1.4.1.5 0l.6-.7c.1-.2.3-.2.4-.2l2.3 1c.2.1.2.3.2.4z"/></svg>
     </a>
 
     <script src="main.js"></script>
