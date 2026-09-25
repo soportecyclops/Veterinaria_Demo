@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Menu Toggle Responsivo
+    // 1. Mobile Menu 
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer clic en un enlace (UX Mobile)
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.setAttribute('aria-expanded', 'false');
@@ -19,31 +18,87 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Acordeón Accesible WCAG
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    // 2. Header Compacto
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    }, { passive: true });
 
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const content = document.getElementById(header.getAttribute('aria-controls'));
-            const isExpanded = header.getAttribute('aria-expanded') === 'true';
-
-            // Comportamiento de acordeón único (cierra los demás de forma fluida)
-            document.querySelectorAll('.accordion-header').forEach(otherHeader => {
-                if (otherHeader !== header) {
-                    otherHeader.setAttribute('aria-expanded', 'false');
-                    const otherContent = document.getElementById(otherHeader.getAttribute('aria-controls'));
-                    if(otherContent) otherContent.style.maxHeight = null;
-                }
-            });
-
-            // Toggle estado actual
-            if (isExpanded) {
-                header.setAttribute('aria-expanded', 'false');
-                content.style.maxHeight = null;
-            } else {
-                header.setAttribute('aria-expanded', 'true');
-                content.style.maxHeight = content.scrollHeight + "px";
+    // 3. Observer para animaciones fluidas
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                obs.unobserve(entry.target); 
             }
         });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 4. Acordeón FAQ Exclusivo
+    const details = document.querySelectorAll('details[name="faq"]');
+    details.forEach(targetDetail => {
+        targetDetail.addEventListener('click', () => {
+            details.forEach(detail => {
+                if (detail !== targetDetail) {
+                    detail.removeAttribute('open');
+                }
+            });
+        });
     });
+
+    // 5. Lógica del Carrusel Automático
+    const track = document.getElementById('carousel-track');
+    const slides = Array.from(track.children);
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    const carouselContainer = document.querySelector('.carousel-container');
+    
+    let currentIndex = 0;
+    let autoPlayInterval;
+    const intervalTime = 4000;
+
+    const updateCarousel = (index) => {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        indicators.forEach(ind => ind.classList.remove('active'));
+        indicators[index].classList.add('active');
+    };
+
+    const nextSlide = () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel(currentIndex);
+    };
+
+    const startAutoPlay = () => {
+        autoPlayInterval = setInterval(nextSlide, intervalTime);
+    };
+
+    const stopAutoPlay = () => {
+        clearInterval(autoPlayInterval);
+    };
+
+    if (indicators.length > 0 && slides.length > 0) {
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel(currentIndex);
+                stopAutoPlay();
+                startAutoPlay();
+            });
+        });
+
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+            carouselContainer.addEventListener('mouseleave', startAutoPlay);
+            carouselContainer.addEventListener('focusin', stopAutoPlay);
+            carouselContainer.addEventListener('focusout', startAutoPlay);
+            
+            startAutoPlay();
+        }
+    }
 });
