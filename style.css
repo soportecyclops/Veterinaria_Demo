@@ -178,3 +178,36 @@ details[open] summary::after { transform: rotate(45deg); }
     .carousel-slide .image-wrapper { aspect-ratio: 4/3; }
     .location-map iframe { height: 350px; }
 }
+
+/* ==========================================================
+   Estados faltantes y movimiento reducido — 15/11/2026
+   ========================================================== */
+button:disabled,
+[aria-disabled="true"],
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: .55;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(.4);
+}
+
+a:active,
+button:active,
+.btn:active { transform: translateY(0) scale(.985); }
+
+.photo-credit {
+  margin: 1.25rem 0 0;
+  font-size: .75rem;
+  opacity: .6;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
